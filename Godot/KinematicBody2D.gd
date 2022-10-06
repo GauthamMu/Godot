@@ -5,6 +5,7 @@ const ACCELERATION = 50
 const MAX_SPEED = 200
 const JUMP_HEIGHT = -550
 var motion = Vector2()
+var A = false
 func _physics_process(delta):
 	motion.y += GRAVITY
 	var friction = false
@@ -21,6 +22,10 @@ func _physics_process(delta):
 		friction = true
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):
+			if A == false:
+				motion.y = JUMP_HEIGHT
+		if Input.is_action_just_pressed("ui_cancel"):
+			A = true
 			motion.y = JUMP_HEIGHT
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.2)

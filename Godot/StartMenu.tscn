@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://Sprites (8)/Sky.png" type="Texture" id=2]
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
@@ -33,6 +34,12 @@ margin_top = 42.0
 margin_right = 93.0
 margin_bottom = 62.0
 text = "Quit Game"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 320, 320 )
+texture = ExtResource( 2 )
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
